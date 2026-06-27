@@ -1,0 +1,45 @@
+# Credentials and secrets
+credentials.json
+token.json
+.env
+
+# Vault (runtime artifact with private data)
+vault/
+
+# Watcher runtime state
+.watcher_state.json
+.watcher_state_*.json
+.watcher.lock
+*.lock
+
+# WhatsApp session
+.whatsapp_session/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+dist/
+build/
+.venv/
+venv/
+
+# OS
+.DS_Store
+Thumbs.db
+*.tmp
+*.swp
+
+# IDE
+.vscode/
+.idea/
+
+# Docker
+odoo-db/
+
+# Service health state
+.service_health.json
+
+# Streamlit
+.streamlit/secrets.toml

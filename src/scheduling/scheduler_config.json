@@ -1,0 +1,58 @@
+{
+  "interval_minutes": 5,
+  "vault_path": "./vault",
+  "log_path": "./vault/Logs",
+  "components": {
+    "gmail_watcher": {
+      "enabled": true,
+      "script": "src/watchers/gmail_watcher.py",
+      "args": [
+        "--vault-path",
+        "./vault",
+        "--interval",
+        "0"
+      ]
+    },
+    "whatsapp_watcher": {
+      "enabled": false,
+      "script": "src/watchers/whatsapp_watcher.py",
+      "args": [
+        "--vault-path",
+        "./vault",
+        "--interval",
+        "0"
+      ],
+      "note": "Enable after first manual WhatsApp Web session setup"
+    },
+    "approval_checker": {
+      "enabled": true,
+      "script": "src/approval/checker.py",
+      "args": [
+        "--vault-path",
+        "./vault"
+      ]
+    },
+    "briefing_generator": {
+      "enabled": true,
+      "schedule": "weekly",
+      "schedule_day": 0,
+      "schedule_hour_start": 6,
+      "schedule_hour_end": 9,
+      "script": "src/briefing/briefing_generator.py",
+      "args": [
+        "--vault-path",
+        "./vault"
+      ],
+      "note": "Monday morning CEO Briefing (day 0 = Monday)"
+    },
+    "health_check": {
+      "enabled": true,
+      "script": "src/health/service_health.py",
+      "args": [
+        "--vault-path",
+        "./vault"
+      ],
+      "note": "Service health status check for Dashboard"
+    }
+  }
+}
