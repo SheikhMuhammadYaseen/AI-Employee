@@ -274,6 +274,3 @@ python -m pytest tests/ -v
 - **12 Claude Code Skills**: Extended from Silver with Ralph Wiggum, briefing, audit, Odoo, and architecture skills
 - **Streamlit Dashboard**: Full web UI in `dashboard/` — 10 pages, real-time monitoring, auto-refresh, dark theme, demo mode fallback
 - **247 tests** (139 new Gold tests)
-
-See `specs/003-gold-tier-autonomous/` for full specification, plan, and task breakdown.
-Contributed by Claude (AI).
