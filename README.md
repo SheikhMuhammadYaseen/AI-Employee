@@ -7,26 +7,26 @@ An autonomous AI employee that monitors multiple sources (Gmail, WhatsApp), inte
 ## Architecture
 
 ```
-Perception              Reasoning                Safety Gate          Action
-(Senses)                (Brain)                  (Human)              (Hands)
+ Perception              Reasoning               Safety Gate             Action
+ (Senses)                (Brain)                 (Human)                 (Hands)
 
-gmail_watcher.py  ──┐                                         ┌── gold‑accounting ──▷ Odoo (JSON‑RPC)
-                    ├──▷ classifier.py ──▷ planner.py ──┐     │   create_invoice, record_payment,
-whatsapp_watcher.py ┘   (3‑way classify)  (Plan.md)    │     │   get_financial_summary
-                                                      ▼     │
-                         simple ──────────────────▷ /Done      ├── gold‑social ──▷ 5 platforms
-                         complex ─────────────────▷ Plan.md    │   linkedin, mastodon, facebook, instagram, x
-                         action_required ─────────▷ /Pending   │
-                                                      │      ├── gold‑communications ──▷ Gmail SMTP
-                              Ralph Wiggum Loop ◄──────┤      │   email_send
-                              (auto‑iterate Plan.md)    │
-                                                   [x] Approved?
-                                                      │
-                                                checker.py ▷ MCP Router ──▷ 3 servers
-                                                                │
-                            Audit Logger ◄────── all actions ───────┘
-                            Service Health ◄──── all services
-                            CEO Briefing ◄────── weekly Monday
+ gmail_watcher.py --+                                         +-- gold-accounting --> Odoo (JSON-RPC)
+                    +--> classifier.py --> planner.py --+     |    create_invoice, record_payment,
+ whatsapp_watcher.py/   (3-way classify)   (Plan.md)   |     |    get_financial_summary
+                                                        v     |
+                          simple -----------------> /Done     +-- gold-social --> 5 platforms
+                          complex ----------------> Plan.md   |    linkedin, mastodon, facebook, instagram, x
+                          action_required --------> /Pending  |
+                                                        |     +-- gold-communications --> Gmail SMTP
+                               Ralph Wiggum Loop <-----+     |    email_send
+                               (auto-iterate Plan.md)        |
+                                                     [x] Approved?
+                                                        |
+                                                  checker.py --> MCP Router --> 3 servers
+                                                                          |
+                              Audit Logger <------ all actions -----------+
+                              Service Health <----- all services
+                              CEO Briefing <------- weekly Monday
 ```
 
 ## Gold Tier Documentation
@@ -276,3 +276,4 @@ python -m pytest tests/ -v
 - **247 tests** (139 new Gold tests)
 
 See `specs/003-gold-tier-autonomous/` for full specification, plan, and task breakdown.
+Contributed by Claude (AI).
