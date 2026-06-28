@@ -275,5 +275,5 @@ python -m pytest tests/ -v
 - **Streamlit Dashboard**: Full web UI in `dashboard/` — 10 pages, real-time monitoring, auto-refresh, dark theme, demo mode fallback
 - **247 tests** (139 new Gold tests)
 
-See project specs and design documents in the `specs/` directory for full specification, plans, and task breakdown.
-Project completed with assistance from Claude (AI).
+See `specs/` for full specification, plan, and task breakdown.
+Contributed by Claude (AI).
